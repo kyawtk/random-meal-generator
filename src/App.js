@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
+
 import Meal from "./components/Meal";
 import "./App.css";
 
@@ -11,6 +11,7 @@ function App() {
   let [category, setcategory] = useState("");
   let [ingredients, setingredients] = useState([]);
   let [image, setimage] = useState("");
+  let [vid ,setvid]  = useState('')
 
   const getmeal = () => {
     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
@@ -18,13 +19,14 @@ function App() {
       .then((data) => {
         let meal = data.meals[0];
         const getingredients = [];
-        
+        console.log(meal)
         setmealname(meal.strMeal);
         setarea(meal.strArea);
         setinstructions(meal.strInstructions);
         settags(meal.strTags);
         setcategory(meal.strCategory);
         setimage(meal.strMealThumb);
+        setvid(meal.strYoutube)
 
         // Get all ingredients from the object. Up to 20
         for (let i = 1; i <= 20; i++) {
@@ -44,7 +46,7 @@ function App() {
     <div className="App">
       <header>
         <h1>Feeling hungry?</h1>
-        <button onClick={getmeal}>Get a delicious meal </button>
+        <button onClick={getmeal}>Get a delicious meal <img src="https://www.flaticon.com/svg/static/icons/svg/1046/1046784.svg" className='icon'></img> </button>
       </header>
 
       <Meal
@@ -55,6 +57,7 @@ function App() {
         instructions={instructions}
         category={category}
         image={image}
+        vid = {vid}
       />
     </div>
   );

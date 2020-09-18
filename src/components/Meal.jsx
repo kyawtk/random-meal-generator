@@ -1,11 +1,11 @@
 import React from "react";
 const Meal = (props) => {
-  let { name, tags, category, area, instructions, ingredients, image } = props;
-  
+  let {vid, name, tags, category, area, instructions, ingredients, image } = props;
+  let vidsrc  = 'https://www.youtube.com/embed/'+ vid.slice(-11);
   return (
-    <div className="meal-wrapper">
+    <div className="meal-wrapper" style={{display:`${name?"block":'none'}`}}>
       <article>
-        <img src={image} />
+        <img src={image} alt="img" />
         <div className="text">
           <h1>{name}</h1>
           <p>{instructions}</p>
@@ -13,22 +13,25 @@ const Meal = (props) => {
       </article>
       <div className="info">
         <p>
-          <b style={{ display: `${category ? "block" : "none"}` }}>
+          <b >
             Category : {category}
           </b>
         </p>
         <p>
-          <b style={{ display: `${area ? "block" : "none"}` }}>Area : {area}</b>
+          <b>Area : {area}</b>
         </p>
         <p>
-          <b style={{ display: `${tags ? "block" : "none"}` }}>Tags : {tags}</b>
+          <b>Tags : {tags}</b>
         </p>
       </div>
-      <div className="ingredients" >
-          <h2 style={{ display: `${name ? "block" : "none"}` }}>Ingredients:</h2>
-          {ingredients.map(i =>{
-              return <li key = {i}>{i}</li>
-          })}
+      <div className="ingredients">
+        <h2 >Ingredients:</h2>
+        {ingredients.map((i, index) => {
+          return <li key={Math.random() * index}>{i}</li>;
+        })}
+      </div>
+      <div className="video" >
+      <iframe src={vidsrc} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
     </div>
   );
