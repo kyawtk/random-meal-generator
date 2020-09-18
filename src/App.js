@@ -10,7 +10,7 @@ function App() {
   let [tags, settags] = useState("");
   let [category, setcategory] = useState("");
   let [ingredients, setingredients] = useState([]);
-  let [image ,setimage] = useState('')
+  let [image, setimage] = useState("");
 
   const getmeal = () => {
     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
@@ -18,13 +18,13 @@ function App() {
       .then((data) => {
         let meal = data.meals[0];
         const getingredients = [];
-        console.log(meal);
+        
         setmealname(meal.strMeal);
         setarea(meal.strArea);
         setinstructions(meal.strInstructions);
         settags(meal.strTags);
         setcategory(meal.strCategory);
-        setimage(meal.strMealThumb)
+        setimage(meal.strMealThumb);
 
         // Get all ingredients from the object. Up to 20
         for (let i = 1; i <= 20; i++) {
@@ -42,7 +42,11 @@ function App() {
   };
   return (
     <div className="App">
-      <button onClick={getmeal}></button>
+      <header>
+        <h1>Feeling hungry?</h1>
+        <button onClick={getmeal}>Get a delicious meal </button>
+      </header>
+
       <Meal
         name={mealname}
         tags={tags}
@@ -50,7 +54,7 @@ function App() {
         area={area}
         instructions={instructions}
         category={category}
-        image = {image}
+        image={image}
       />
     </div>
   );
