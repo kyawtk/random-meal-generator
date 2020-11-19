@@ -46,7 +46,7 @@ function App() {
     <div className="App">
       <header>
         <h1>Feeling hungry?</h1>
-        <button onClick={getmeal}>Get a delicious meal <img src="https://www.flaticon.com/svg/static/icons/svg/1046/1046784.svg" className='icon'></img> </button>
+        <button onClick={getmeal}>Get a delicious meal <img alt="burger" src="https://www.flaticon.com/svg/static/icons/svg/1046/1046784.svg" className='icon'></img> </button>
       </header>
 
       <Meal
