@@ -31,7 +31,7 @@ const Meal = (props) => {
         })}
       </div>
       <div className="video" >
-      <iframe src={vidsrc} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+      <iframe title="video"  src={vidsrc} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
     </div>
   );
