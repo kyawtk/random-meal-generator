@@ -5,7 +5,7 @@ const Meal = (props) => {
   return (
     <div className="meal-wrapper" style={{display:`${name?"block":'none'}`}}>
       <article>
-        <img src={image} alt="image" />
+        <img src={image} alt="meal" />
         <div className="text">
           <h1>{name}</h1>
           <p>{instructions}</p>
